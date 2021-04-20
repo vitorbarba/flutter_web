@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "easyday-28ab0"
+  },
+  "targets": {
+    "easyday-28ab0": {
+      "hosting": {
+        "app": [
+          "vendabalcao"
+        ]
+      }
+    }
+  }
+}
