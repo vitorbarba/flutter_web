@@ -10,7 +10,7 @@ bool useFirestoreEmulator = false;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-    if (useFirestoreEmulator) {
+  if (useFirestoreEmulator) {
     FirebaseFirestore.instance.settings = const Settings(
         host: 'localhost:5000', sslEnabled: false, persistenceEnabled: false);
   }
