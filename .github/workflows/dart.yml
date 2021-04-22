@@ -36,7 +36,7 @@ jobs:
         - name: Deploy Firebase Hosting
           uses: w9jds/firebase-action@master
           with:
-            args: deploy --only hosting:easyday-28ab0.firebaseapp.com
+            args: deploy --only hosting:easyday-28ab0
           env:
             FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
             PROJECT_PATH: ./
