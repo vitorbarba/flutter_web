@@ -14,7 +14,6 @@ Future<void> main() async {
     FirebaseFirestore.instance.settings = const Settings(
         host: 'localhost:5000', sslEnabled: false, persistenceEnabled: false);
   }
-  print("testes Actions");
   runApp(MyApp());
 }
 

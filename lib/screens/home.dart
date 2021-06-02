@@ -21,7 +21,7 @@ class Home extends GetWidget<AuthController> {
           },
           builder: (_) {
             if (_.user.name != null) {
-              return Text("Welcome " + _.user.name!);
+              return Text("Bem vindo " + _.user.name!);
             } else {
               return Text("loading...");
             }
@@ -74,8 +74,8 @@ class Home extends GetWidget<AuthController> {
                     icon: Icon(Icons.add),
                     onPressed: () {
                       if (_todoController.text != "") {
-                        Database()
-                            .addTodo(_todoController.text, controller.user!.uid);
+                        Database().addTodo(
+                            _todoController.text, controller.user!.uid);
                         _todoController.clear();
                       }
                     },
