@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:vendabalcao/controllers/todoController.dart';
-import 'package:vendabalcao/controllers/userController.dart';
-import 'package:vendabalcao/models/user.dart';
-import 'package:vendabalcao/services/database.dart';
+import 'package:todoList/controllers/todoController.dart';
+import 'package:todoList/controllers/userController.dart';
+import 'package:todoList/models/user.dart';
+import 'package:todoList/services/database.dart';
 
 class AuthController extends GetxController {
   FirebaseAuth _auth = FirebaseAuth.instance;

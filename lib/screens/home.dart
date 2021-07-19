@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
-import 'package:vendabalcao/controllers/authController.dart';
-import 'package:vendabalcao/controllers/todoController.dart';
-import 'package:vendabalcao/controllers/userController.dart';
-import 'package:vendabalcao/services/database.dart';
-import 'package:vendabalcao/widgets/todo_card.dart';
+import 'package:todoList/controllers/authController.dart';
+import 'package:todoList/controllers/todoController.dart';
+import 'package:todoList/controllers/userController.dart';
+import 'package:todoList/services/database.dart';
+import 'package:todoList/widgets/todo_card.dart';
 
 class Home extends GetWidget<AuthController> {
   final TextEditingController _todoController = TextEditingController();

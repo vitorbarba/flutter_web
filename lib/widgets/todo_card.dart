@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:vendabalcao/models/todo.dart';
-import 'package:vendabalcao/services/database.dart';
+import 'package:todoList/models/todo.dart';
+import 'package:todoList/services/database.dart';
 
 class TodoCard extends StatelessWidget {
   final String? uid;
   final TodoModel? todo;
 
-  const TodoCard({Key? key, this.uid, this.todo})
-      : super(key: key);
+  const TodoCard({Key? key, this.uid, this.todo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

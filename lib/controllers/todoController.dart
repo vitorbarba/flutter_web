@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:vendabalcao/controllers/authController.dart';
-import 'package:vendabalcao/models/todo.dart';
-import 'package:vendabalcao/services/database.dart';
+import 'package:todoList/controllers/authController.dart';
+import 'package:todoList/models/todo.dart';
+import 'package:todoList/services/database.dart';
 
 class TodoController extends GetxController {
   Rxn<List<TodoModel>> todoList = Rxn<List<TodoModel>>();

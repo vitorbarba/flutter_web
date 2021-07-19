@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:vendabalcao/models/todo.dart';
-import 'package:vendabalcao/models/user.dart';
+import 'package:todoList/models/todo.dart';
+import 'package:todoList/models/user.dart';
 
 class Database {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -32,11 +32,7 @@ class Database {
 
   Future<void> addTodo(String content, String uid) async {
     try {
-      await _firestore
-          .collection("users")
-          .doc(uid)
-          .collection("todos")
-          .add({
+      await _firestore.collection("users").doc(uid).collection("todos").add({
         'dateCreated': Timestamp.now(),
         'content': content,
         'done': false,
