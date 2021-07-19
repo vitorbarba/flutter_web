@@ -43,6 +43,15 @@ class Database {
     }
   }
 
+  Future<void> removeTodoId(String uid, String docId) async {
+    try {
+      await _firestore.collection("users").doc(uid).collection("todos").doc(docId).delete();
+    } catch (e) {
+      print(e);
+      rethrow;
+    }
+  }
+
   Stream<List<TodoModel>> todoStream(String uid) {
     return _firestore
         .collection("users")

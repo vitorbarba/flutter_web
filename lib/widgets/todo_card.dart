@@ -31,6 +31,11 @@ class TodoCard extends StatelessWidget {
                 Database().updateTodo(newValue!, uid!, todo!.todoId);
               },
             ),
+            IconButton(
+                onPressed: () {
+                  Database().removeTodoId(uid!, todo!.todoId);
+                },
+                icon: new Icon(Icons.delete)),
           ],
         ),
       ),
