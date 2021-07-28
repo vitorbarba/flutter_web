@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:todoList/models/todo.dart';
-import 'package:todoList/models/user.dart';
+import 'package:todolist/models/todo.dart';
+import 'package:todolist/models/user.dart';
 
 class Database {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -45,7 +45,12 @@ class Database {
 
   Future<void> removeTodoId(String uid, String docId) async {
     try {
-      await _firestore.collection("users").doc(uid).collection("todos").doc(docId).delete();
+      await _firestore
+          .collection("users")
+          .doc(uid)
+          .collection("todos")
+          .doc(docId)
+          .delete();
     } catch (e) {
       print(e);
       rethrow;

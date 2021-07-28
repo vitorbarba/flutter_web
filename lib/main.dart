@@ -4,8 +4,8 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todoList/controllers/bindings/authBinding.dart';
-import 'package:todoList/utils/root.dart';
+import 'package:todolist/controllers/bindings/authBinding.dart';
+import 'package:todolist/utils/root.dart';
 
 bool useFirestoreEmulator = false;
 
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'todoList',
+      title: 'todolist',
       initialBinding: AuthBinding(),
       home: Root(),
       theme: ThemeData.dark(),

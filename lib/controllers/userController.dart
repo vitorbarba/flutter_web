@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:todoList/models/user.dart';
+import 'package:todolist/models/user.dart';
 
 class UserController extends GetxController {
   late Rx<UserModel> _userModel = UserModel().obs;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todoList/controllers/authController.dart';
-import 'package:todoList/controllers/userController.dart';
-import 'package:todoList/screens/home.dart';
-import 'package:todoList/screens/login.dart';
+import 'package:todolist/controllers/authController.dart';
+import 'package:todolist/controllers/userController.dart';
+import 'package:todolist/screens/home.dart';
+import 'package:todolist/screens/login.dart';
 
 class Root extends GetView<AuthController> {
   @override

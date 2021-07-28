@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
-import 'package:todoList/controllers/authController.dart';
+import 'package:todolist/controllers/authController.dart';
 
 class SignUp extends GetWidget<AuthController> {
   final TextEditingController nameController = TextEditingController();

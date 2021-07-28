@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
-import 'package:todoList/controllers/authController.dart';
-import 'package:todoList/models/todo.dart';
-import 'package:todoList/services/database.dart';
+import 'package:todolist/controllers/authController.dart';
+import 'package:todolist/models/todo.dart';
+import 'package:todolist/services/database.dart';
 
 class TodoController extends GetxController {
-  Rxn<List<TodoModel>> todoList = Rxn<List<TodoModel>>();
+  Rxn<List<TodoModel>> todolist = Rxn<List<TodoModel>>();
 
-  List<TodoModel> get todos => todoList.value!;
+  List<TodoModel> get todos => todolist.value!;
 
   @override
   void onInit() {
@@ -16,11 +16,11 @@ class TodoController extends GetxController {
 
   void setUser() {
     String uid = Get.find<AuthController>().user!.uid;
-    todoList
+    todolist
         .bindStream(Database().todoStream(uid)); //stream coming from firebase
   }
 
   void clear() {
-    todoList.value = [];
+    todolist.value = [];
   }
 }
