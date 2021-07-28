@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 import 'package:todolist/controllers/authController.dart';
 
+// ignore: use_key_in_widget_constructors
 class SignUp extends GetWidget<AuthController> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -11,7 +12,7 @@ class SignUp extends GetWidget<AuthController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sign Up"),
+        title: const Text("Sign Up"),
       ),
       body: Center(
         child: Padding(
@@ -20,21 +21,21 @@ class SignUp extends GetWidget<AuthController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               TextFormField(
-                decoration: InputDecoration(hintText: "Full Name"),
+                decoration: const InputDecoration(hintText: "Full Name"),
                 controller: nameController,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               TextFormField(
-                decoration: InputDecoration(hintText: "Email"),
+                decoration: const InputDecoration(hintText: "Email"),
                 controller: emailController,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               TextFormField(
-                decoration: InputDecoration(hintText: "Password"),
+                decoration: const InputDecoration(hintText: "Password"),
                 obscureText: true,
                 controller: passwordController,
               ),
@@ -43,7 +44,7 @@ class SignUp extends GetWidget<AuthController> {
                     controller.createUser(nameController.text,
                         emailController.text, passwordController.text);
                   },
-                  child: Text("Sign Up")),
+                  child: const Text("Sign Up")),
             ],
           ),
         ),

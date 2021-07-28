@@ -5,6 +5,7 @@ import 'package:todolist/controllers/userController.dart';
 import 'package:todolist/screens/home.dart';
 import 'package:todolist/screens/login.dart';
 
+// ignore: use_key_in_widget_constructors
 class Root extends GetView<AuthController> {
   @override
   Widget build(BuildContext context) {

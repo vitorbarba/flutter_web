@@ -7,6 +7,7 @@ import 'package:todolist/controllers/userController.dart';
 import 'package:todolist/services/database.dart';
 import 'package:todolist/widgets/todo_card.dart';
 
+// ignore: use_key_in_widget_constructors
 class Home extends GetWidget<AuthController> {
   final TextEditingController _todoController = TextEditingController();
   @override
@@ -15,7 +16,6 @@ class Home extends GetWidget<AuthController> {
       appBar: AppBar(
         title: GetX<UserController>(
           initState: (_) async {
-            print("Home get UserController");
             Get.find<UserController>().user =
                 await Database().getUser(Get.find<AuthController>().user!.uid);
           },
@@ -23,20 +23,20 @@ class Home extends GetWidget<AuthController> {
             if (_.user.name != null) {
               return Text("Bem vindo " + _.user.name!);
             } else {
-              return Text("loading...");
+              return const Text("loading...");
             }
           },
         ),
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.exit_to_app),
+            icon: const Icon(Icons.exit_to_app),
             onPressed: () {
               controller.signOut();
             },
           ),
           IconButton(
-            icon: Icon(Icons.edit),
+            icon: const Icon(Icons.edit),
             onPressed: () {
               if (Get.isDarkMode) {
                 Get.changeTheme(ThemeData.light());
@@ -49,10 +49,10 @@ class Home extends GetWidget<AuthController> {
       ),
       body: Column(
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Text(
+          const Text(
             "Add Todo Here:",
             style: TextStyle(
               fontSize: 20,
@@ -60,7 +60,7 @@ class Home extends GetWidget<AuthController> {
             ),
           ),
           Card(
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Row(
@@ -71,7 +71,7 @@ class Home extends GetWidget<AuthController> {
                     ),
                   ),
                   IconButton(
-                    icon: Icon(Icons.add),
+                    icon: const Icon(Icons.add),
                     onPressed: () {
                       if (_todoController.text != "") {
                         Database().addTodo(
@@ -84,7 +84,7 @@ class Home extends GetWidget<AuthController> {
               ),
             ),
           ),
-          Text(
+          const Text(
             "Your Todos",
             style: TextStyle(
               fontSize: 20,
@@ -109,7 +109,7 @@ class Home extends GetWidget<AuthController> {
                   ),
                 );
               } else {
-                return Text("loading...");
+                return const Text("loading...");
               }
             },
           )

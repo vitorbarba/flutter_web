@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:todolist/controllers/todoController.dart';
@@ -6,8 +8,8 @@ import 'package:todolist/models/user.dart';
 import 'package:todolist/services/database.dart';
 
 class AuthController extends GetxController {
-  FirebaseAuth _auth = FirebaseAuth.instance;
-  Rxn<User?> _firebaseUser = Rxn<User>();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final Rxn<User?> _firebaseUser = Rxn<User>();
 
   User? get user => _firebaseUser.value;
 

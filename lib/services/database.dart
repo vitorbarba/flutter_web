@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:todolist/models/todo.dart';
 import 'package:todolist/models/user.dart';
@@ -66,9 +68,9 @@ class Database {
         .snapshots()
         .map((QuerySnapshot query) {
       List<TodoModel> retVal = [];
-      query.docs.forEach((element) {
+      for (var element in query.docs) {
         retVal.add(TodoModel.fromDocumentSnapshot(element));
-      });
+      }
       return retVal;
     });
   }

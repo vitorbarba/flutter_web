@@ -11,7 +11,7 @@ class TodoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Row(
@@ -19,7 +19,7 @@ class TodoCard extends StatelessWidget {
             Expanded(
               child: Text(
                 todo!.content,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
                 ),
@@ -35,7 +35,7 @@ class TodoCard extends StatelessWidget {
                 onPressed: () {
                   Database().removeTodoId(uid!, todo!.todoId);
                 },
-                icon: new Icon(Icons.delete)),
+                icon: const Icon(Icons.delete)),
           ],
         ),
       ),

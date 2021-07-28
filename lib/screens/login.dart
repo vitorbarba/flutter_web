@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:todolist/controllers/authController.dart';
 import 'package:todolist/screens/signup.dart';
 
+// ignore: use_key_in_widget_constructors
 class Login extends GetWidget<AuthController> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -11,7 +12,7 @@ class Login extends GetWidget<AuthController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login"),
+        title: const Text("Login"),
       ),
       body: Center(
         child: Padding(
@@ -20,26 +21,26 @@ class Login extends GetWidget<AuthController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               TextFormField(
-                decoration: InputDecoration(hintText: "Email"),
+                decoration: const InputDecoration(hintText: "Email"),
                 controller: emailController,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               TextFormField(
-                decoration: InputDecoration(hintText: "Password"),
+                decoration: const InputDecoration(hintText: "Password"),
                 controller: passwordController,
                 obscureText: true,
               ),
               TextButton(
-                child: Text("Log In"),
+                child: const Text("Log In"),
                 onPressed: () {
                   controller.login(
                       emailController.text, passwordController.text);
                 },
               ),
               TextButton(
-                child: Text("Sign Up"),
+                child: const Text("Sign Up"),
                 onPressed: () {
                   Get.to(SignUp());
                 },
