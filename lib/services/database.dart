@@ -69,7 +69,7 @@ class Database {
         .map((QuerySnapshot query) {
       List<TodoModel> retVal = [];
       for (var element in query.docs) {
-        retVal.add(TodoModel.fromDocumentSnapshot(element));
+        retVal.add(TodoModel.fromDocumentSnapshot(documentSnapshot: element));
       }
       return retVal;
     });

@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'todolist',
+      title: 'todoList',
       initialBinding: AuthBinding(),
       home: Root(),
       theme: ThemeData.dark(),

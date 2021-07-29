@@ -92,27 +92,25 @@ class Home extends GetWidget<AuthController> {
             ),
           ),
           GetX<TodoController>(
-            init: Get.put<TodoController>(TodoController()),
-            builder: (TodoController todoController) {
-              // ignore: unnecessary_null_comparison
-              if (todoController != null && todoController.todos != null) {
-                return Expanded(
-                  child: ListView.builder(
-                    itemCount: todoController.todos.length,
-                    itemBuilder: (_, index) {
-                      return TodoCard(
-                        uid: controller.user!.uid,
-                        todo: todoController.todos[index],
-                        key: null,
+              init: Get.put<TodoController>(TodoController()),
+              builder: (TodoController todoController) {
+                // ignore: unnecessary_null_comparison
+                return (!(todoController != null &&
+                        todoController.todos.isNotEmpty))
+                    ? const Expanded(child: Text("loading..."))
+                    : Expanded(
+                        child: ListView.builder(
+                          itemCount: todoController.todos.length,
+                          itemBuilder: (_, index) {
+                            return TodoCard(
+                              uid: controller.user!.uid,
+                              todo: todoController.todos[index],
+                              key: null,
+                            );
+                          },
+                        ),
                       );
-                    },
-                  ),
-                );
-              } else {
-                return const Text("loading...");
-              }
-            },
-          )
+              })
         ],
       ),
     );

@@ -13,9 +13,7 @@ class TodoModel {
     this.done,
   );
 
-  TodoModel.fromDocumentSnapshot(
-    DocumentSnapshot documentSnapshot,
-  ) {
+  TodoModel.fromDocumentSnapshot({required DocumentSnapshot documentSnapshot}) {
     todoId = documentSnapshot.id;
     content = documentSnapshot["content"];
     dateCreated = documentSnapshot["dateCreated"];
