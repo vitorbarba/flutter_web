@@ -21,9 +21,9 @@ class Home extends GetWidget<AuthController> {
           },
           builder: (_) {
             if (_.user.name != null) {
-              return Text("Bem vindo " + _.user.name!);
+              return Text('Welcome'.tr + ' ' + _.user.name!);
             } else {
-              return const Text("loading...");
+              return Text('loading...'.tr);
             }
           },
         ),
@@ -38,11 +38,8 @@ class Home extends GetWidget<AuthController> {
           IconButton(
             icon: const Icon(Icons.edit),
             onPressed: () {
-              if (Get.isDarkMode) {
-                Get.changeTheme(ThemeData.light());
-              } else {
-                Get.changeTheme(ThemeData.dark());
-              }
+              Get.changeTheme(
+                  Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
             },
           )
         ],

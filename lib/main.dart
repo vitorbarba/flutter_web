@@ -28,10 +28,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'todoList',
+      title: 'ToDo List'.tr,
+      locale: Get.deviceLocale,
+      fallbackLocale: const Locale('en', 'US'),
       initialBinding: AuthBinding(),
       home: Root(),
-      theme: ThemeData.dark(),
+      theme: Get.isPlatformDarkMode ? ThemeData.dark() : ThemeData.light(),
     );
   }
 }

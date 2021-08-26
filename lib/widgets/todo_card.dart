@@ -18,7 +18,7 @@ class TodoCard extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                todo!.content,
+                todo!.content ?? "",
                 style: const TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
@@ -28,12 +28,12 @@ class TodoCard extends StatelessWidget {
             Checkbox(
               value: todo!.done,
               onChanged: (newValue) {
-                Database().updateTodo(newValue!, uid!, todo!.todoId);
+                Database().updateTodo(newValue!, uid!, todo!.id ?? "");
               },
             ),
             IconButton(
                 onPressed: () {
-                  Database().removeTodoId(uid!, todo!.todoId);
+                  Database().removeTodoId(uid!, todo!.id ?? "");
                 },
                 icon: const Icon(Icons.delete)),
           ],

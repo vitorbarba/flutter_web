@@ -1,20 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class TodoModel {
-  late String content;
-  late String todoId;
-  late Timestamp dateCreated;
-  late bool done;
+  String? content;
+  String? id;
+  Timestamp? dateCreated;
+  bool? done;
 
-  TodoModel(
+  TodoModel({
     this.content,
-    this.todoId,
+    this.id,
     this.dateCreated,
     this.done,
-  );
+  });
 
   TodoModel.fromDocumentSnapshot({required DocumentSnapshot documentSnapshot}) {
-    todoId = documentSnapshot.id;
+    id = documentSnapshot.id;
     content = documentSnapshot["content"];
     dateCreated = documentSnapshot["dateCreated"];
     done = documentSnapshot["done"];
