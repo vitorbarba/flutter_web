@@ -12,7 +12,7 @@ class Login extends GetWidget<AuthController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Login"),
+        title: Text('Login'.tr),
       ),
       body: Center(
         child: Padding(
@@ -21,26 +21,26 @@ class Login extends GetWidget<AuthController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               TextFormField(
-                decoration: const InputDecoration(hintText: "Email"),
+                decoration: InputDecoration(hintText: 'Email'.tr),
                 controller: emailController,
               ),
               const SizedBox(
                 height: 40,
               ),
               TextFormField(
-                decoration: const InputDecoration(hintText: "Password"),
+                decoration: InputDecoration(hintText: 'Password'.tr),
                 controller: passwordController,
                 obscureText: true,
               ),
               TextButton(
-                child: const Text("Log In"),
+                child: Text('Login'.tr),
                 onPressed: () {
                   controller.login(
                       emailController.text, passwordController.text);
                 },
               ),
               TextButton(
-                child: const Text("Sign Up"),
+                child: Text('Account'.tr),
                 onPressed: () {
                   Get.to(SignUp());
                 },

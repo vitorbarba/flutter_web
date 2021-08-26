@@ -5,6 +5,7 @@ import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todolist/controllers/bindings/authBinding.dart';
+import 'package:todolist/utils/translation_service.dart';
 import 'package:todolist/utils/root.dart';
 
 bool useFirestoreEmulator = false;
@@ -28,12 +29,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'ToDo List'.tr,
-      locale: Get.deviceLocale,
-      fallbackLocale: const Locale('en', 'US'),
+      locale: TranslationService.locale,
+      fallbackLocale: TranslationService.fallbackLocale,
+      translations: TranslationService(),
       initialBinding: AuthBinding(),
       home: Root(),
-      theme: Get.isPlatformDarkMode ? ThemeData.dark() : ThemeData.light(),
+      theme: !Get.isPlatformDarkMode ? ThemeData.dark() : ThemeData.light(),
+      title: 'ToDo_List'.tr,
     );
   }
 }

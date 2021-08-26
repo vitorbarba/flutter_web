@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 import 'package:todolist/controllers/authController.dart';
 
 // ignore: use_key_in_widget_constructors
@@ -12,7 +13,7 @@ class SignUp extends GetWidget<AuthController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Sign Up"),
+        title: Text('Account'.tr),
       ),
       body: Center(
         child: Padding(
@@ -21,21 +22,21 @@ class SignUp extends GetWidget<AuthController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               TextFormField(
-                decoration: const InputDecoration(hintText: "Full Name"),
+                decoration: InputDecoration(hintText: 'Full_Name'.tr),
                 controller: nameController,
               ),
               const SizedBox(
                 height: 40,
               ),
               TextFormField(
-                decoration: const InputDecoration(hintText: "Email"),
+                decoration: InputDecoration(hintText: 'Email'.tr),
                 controller: emailController,
               ),
               const SizedBox(
                 height: 40,
               ),
               TextFormField(
-                decoration: const InputDecoration(hintText: "Password"),
+                decoration: InputDecoration(hintText: 'Password'.tr),
                 obscureText: true,
                 controller: passwordController,
               ),
@@ -44,7 +45,7 @@ class SignUp extends GetWidget<AuthController> {
                     controller.createUser(nameController.text,
                         emailController.text, passwordController.text);
                   },
-                  child: const Text("Sign Up")),
+                  child: Text('Sign_Up'.tr)),
             ],
           ),
         ),

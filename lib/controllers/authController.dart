@@ -35,7 +35,7 @@ class AuthController extends GetxController {
       }
     } catch (e) {
       Get.snackbar(
-        "Error creating Account",
+        'Error_creating_Account'.tr,
         e.toString(),
         snackPosition: SnackPosition.BOTTOM,
       );
@@ -51,7 +51,7 @@ class AuthController extends GetxController {
       Get.find<TodoController>().setUser();
     } catch (e) {
       Get.snackbar(
-        "Error signing in",
+        'Error_signing_in'.tr,
         e.toString(),
         snackPosition: SnackPosition.BOTTOM,
       );
@@ -65,7 +65,7 @@ class AuthController extends GetxController {
       Get.find<TodoController>().clear();
     } catch (e) {
       Get.snackbar(
-        "Error signing out",
+        'Error_signing_out'.tr,
         e.toString(),
         snackPosition: SnackPosition.BOTTOM,
       );

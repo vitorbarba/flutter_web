@@ -21,7 +21,28 @@ class Home extends GetWidget<AuthController> {
           },
           builder: (_) {
             if (_.user.name != null) {
-              return Text('Welcome'.tr + ' ' + _.user.name!);
+              return Row(children: [
+                IconButton(
+                  icon: Icon(
+                    GetPlatform.isWeb
+                        ? Icons.web
+                        : GetPlatform.isMobile
+                            ? Icons.phone
+                            : GetPlatform.isDesktop
+                                ? Icons.desktop_windows
+                                : Icons.info_outline,
+                  ),
+                  onPressed: () {},
+                  tooltip: GetPlatform.isWeb
+                      ? 'web'
+                      : GetPlatform.isMobile
+                          ? 'phone'
+                          : GetPlatform.isDesktop
+                              ? 'desktop'
+                              : 'info',
+                ),
+                Text('Welcome'.tr + ' ' + _.user.name!),
+              ]);
             } else {
               return Text('loading...'.tr);
             }
@@ -38,8 +59,9 @@ class Home extends GetWidget<AuthController> {
           IconButton(
             icon: const Icon(Icons.edit),
             onPressed: () {
-              Get.changeTheme(
-                  Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
+              Get.changeTheme((Get.isDarkMode || Get.isPlatformDarkMode)
+                  ? ThemeData.light()
+                  : ThemeData.dark());
             },
           )
         ],
@@ -49,9 +71,9 @@ class Home extends GetWidget<AuthController> {
           const SizedBox(
             height: 20,
           ),
-          const Text(
-            "Add Todo Here:",
-            style: TextStyle(
+          Text(
+            'Add_Todo_Here:'.tr,
+            style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
@@ -81,9 +103,9 @@ class Home extends GetWidget<AuthController> {
               ),
             ),
           ),
-          const Text(
-            "Your Todos",
-            style: TextStyle(
+          Text(
+            'Your_Todos'.tr,
+            style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
@@ -94,7 +116,7 @@ class Home extends GetWidget<AuthController> {
                 // ignore: unnecessary_null_comparison
                 return (!(todoController != null &&
                         todoController.todos.isNotEmpty))
-                    ? const Expanded(child: Text("loading..."))
+                    ? Expanded(child: Text('loading...'.tr))
                     : Expanded(
                         child: ListView.builder(
                           itemCount: todoController.todos.length,
