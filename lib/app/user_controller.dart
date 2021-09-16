@@ -1,7 +1,5 @@
-// ignore_for_file: file_names
-
 import 'package:get/get.dart';
-import 'package:todolist/models/user.dart';
+import 'package:todolist/app/user_model.dart';
 
 class UserController extends GetxController {
   late final Rx<UserModel> _userModel = UserModel().obs;

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:todolist/models/todo.dart';
-import 'package:todolist/services/database.dart';
+import 'package:todolist/app/todo_model.dart';
+import 'package:todolist/app/todo_repository.dart';
 
-class TodoCard extends StatelessWidget {
+class TodoCardPage extends StatelessWidget {
   final String? uid;
   final TodoModel? todo;
 
-  const TodoCard({Key? key, this.uid, this.todo}) : super(key: key);
+  const TodoCardPage({Key? key, this.uid, this.todo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +28,12 @@ class TodoCard extends StatelessWidget {
             Checkbox(
               value: todo!.done,
               onChanged: (newValue) {
-                Database().updateTodo(newValue!, uid!, todo!.id ?? "");
+                todoRepository().updateTodo(newValue!, uid!, todo!.id ?? "");
               },
             ),
             IconButton(
                 onPressed: () {
-                  Database().removeTodoId(uid!, todo!.id ?? "");
+                  todoRepository().removeTodoId(uid!, todo!.id ?? "");
                 },
                 icon: const Icon(Icons.delete)),
           ],

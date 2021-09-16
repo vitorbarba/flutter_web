@@ -1,8 +1,8 @@
 // ignore_for_file: avoid_print
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:todolist/models/todo.dart';
-import 'package:todolist/models/user.dart';
+import 'package:todolist/app/todo_model.dart';
+import 'package:todolist/app/user_model.dart';
 
 class Database {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;

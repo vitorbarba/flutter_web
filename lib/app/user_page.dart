@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/state_manager.dart';
 import 'package:get/get.dart';
-import 'package:todolist/controllers/authController.dart';
-import 'package:todolist/screens/signup.dart';
+import 'package:todolist/app/login_controller.dart';
 
 // ignore: use_key_in_widget_constructors
-class Login extends GetWidget<AuthController> {
+class UserPage extends GetWidget<LoginController> {
+  final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -12,7 +13,7 @@ class Login extends GetWidget<AuthController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'.tr),
+        title: Text('Account'.tr),
       ),
       body: Center(
         child: Padding(
@@ -20,6 +21,13 @@ class Login extends GetWidget<AuthController> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              TextFormField(
+                decoration: InputDecoration(hintText: 'Full_Name'.tr),
+                controller: nameController,
+              ),
+              const SizedBox(
+                height: 40,
+              ),
               TextFormField(
                 decoration: InputDecoration(hintText: 'Email'.tr),
                 controller: emailController,
@@ -29,22 +37,15 @@ class Login extends GetWidget<AuthController> {
               ),
               TextFormField(
                 decoration: InputDecoration(hintText: 'Password'.tr),
-                controller: passwordController,
                 obscureText: true,
+                controller: passwordController,
               ),
               TextButton(
-                child: Text('Login'.tr),
-                onPressed: () {
-                  controller.login(
-                      emailController.text, passwordController.text);
-                },
-              ),
-              TextButton(
-                child: Text('Account'.tr),
-                onPressed: () {
-                  Get.to(SignUp());
-                },
-              )
+                  onPressed: () {
+                    controller.createUser(nameController.text,
+                        emailController.text, passwordController.text);
+                  },
+                  child: Text('Sign_Up'.tr)),
             ],
           ),
         ),

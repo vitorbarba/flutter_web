@@ -1,16 +1,13 @@
-// ignore_for_file: file_names
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:todolist/controllers/todoController.dart';
-import 'package:todolist/controllers/userController.dart';
-import 'package:todolist/models/user.dart';
-import 'package:todolist/services/database.dart';
+import 'package:todolist/app/todo_controller.dart';
+import 'package:todolist/app/user_controller.dart';
+import 'package:todolist/app/user_model.dart';
+import 'package:todolist/app/user_repository.dart';
 
-class AuthController extends GetxController {
+class LoginController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final Rxn<User?> _firebaseUser = Rxn<User>();
-
   User? get user => _firebaseUser.value;
 
   @override
@@ -29,7 +26,7 @@ class AuthController extends GetxController {
         name: name,
         email: _authResult.user!.email,
       );
-      if (await Database().createNewUser(_user)) {
+      if (await userRepository().createNewUser(_user)) {
         Get.find<UserController>().user = _user;
         Get.back();
       }
@@ -47,7 +44,7 @@ class AuthController extends GetxController {
       UserCredential? _authResult = await _auth.signInWithEmailAndPassword(
           email: email.trim(), password: password);
       Get.find<UserController>().user =
-          await Database().getUser(_authResult.user!.uid);
+          await userRepository().getUser(_authResult.user!.uid);
       Get.find<TodoController>().setUser();
     } catch (e) {
       Get.snackbar(

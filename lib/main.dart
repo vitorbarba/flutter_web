@@ -4,9 +4,9 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todolist/controllers/bindings/authBinding.dart';
-import 'package:todolist/utils/translation_service.dart';
-import 'package:todolist/utils/root.dart';
+import 'package:todolist/app/auth_binding.dart';
+import 'package:todolist/app/translation_service.dart';
+import 'package:todolist/app/root.dart';
 
 bool useFirestoreEmulator = false;
 
@@ -34,7 +34,6 @@ class MyApp extends StatelessWidget {
       translations: TranslationService(),
       initialBinding: AuthBinding(),
       home: Root(),
-      theme: !Get.isPlatformDarkMode ? ThemeData.dark() : ThemeData.light(),
       title: 'ToDo_List'.tr,
     );
   }

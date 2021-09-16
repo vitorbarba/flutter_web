@@ -1,9 +1,7 @@
-// ignore_for_file: file_names
-
 import 'package:get/get.dart';
-import 'package:todolist/controllers/authController.dart';
-import 'package:todolist/models/todo.dart';
-import 'package:todolist/services/database.dart';
+import 'package:todolist/app/login_controller.dart';
+import 'package:todolist/app/todo_model.dart';
+import 'package:todolist/app/todo_repository.dart';
 
 class TodoController extends GetxController {
   Rxn<List<TodoModel>> todolist = Rxn<List<TodoModel>>();
@@ -17,9 +15,9 @@ class TodoController extends GetxController {
   }
 
   void setUser() {
-    String uid = Get.find<AuthController>().user!.uid;
+    String uid = Get.find<LoginController>().user!.uid;
     todolist
-        .bindStream(Database().todoStream(uid)); //stream coming from firebase
+        .bindStream(todoRepository().todoStream(uid)); //stream coming from firebase
   }
 
   void clear() {
