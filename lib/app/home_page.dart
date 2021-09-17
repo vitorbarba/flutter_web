@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
@@ -40,8 +38,9 @@ class HomePage extends GetView<LoginController> {
             icon: Obx(() =>
                 Icon(isDarkMode.value ? Icons.light_mode : Icons.dark_mode)),
             onPressed: () {
-              Get.changeTheme(
-                  Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
+              Get.changeThemeMode(Get.theme.brightness == Brightness.dark
+                  ? ThemeMode.light
+                  : ThemeMode.dark);
               isDarkMode.value = !isDarkMode.value;
             },
           ),

@@ -35,6 +35,8 @@ class MyApp extends StatelessWidget {
       initialBinding: AuthBinding(),
       home: Root(),
       title: 'ToDo_List'.tr,
+      darkTheme: ThemeData.dark(),
+      theme: ThemeData.light(),
     );
   }
 }
